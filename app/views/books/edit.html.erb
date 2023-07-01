@@ -4,6 +4,7 @@
       <%= render 'layouts/errors', obj: @book %>
   		<h1>Editing Book</h1>
   		<%= render 'form', book: @book %>
+  		<%= render "books/static_rate", book: @book %>
   		<%= link_to 'Show', @book %> |
   		<%= link_to 'Back', books_path, class: "back" %>
   </div>

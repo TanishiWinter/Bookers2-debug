@@ -21,6 +21,9 @@
             <%= render "favorites/favorite", book: @book %>
           </td>
           <td>
+            <%= render "books/static_rate", book: @book %>
+          </td>
+          <td>
             <% if @book.user == current_user %>
               <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %>
             <% end %>
