@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
+  validates :category, presence: true
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
