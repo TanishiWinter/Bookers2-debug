@@ -10,6 +10,9 @@ class Book < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :star_count, -> {order(star: :desc)}
+
   def self.looks(search, word)
     if search == "perfect_match"
       @book = Book.where("title LIKE?","#{word}")

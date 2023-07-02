@@ -10,6 +10,15 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:star_count]
+      @books = Book.star_count
+    else
+      @books = Book.all
+    end
+
   end
 
   def create
