@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+
+    @books_con = @user.books.page(params[:page]).reverse_order
+    @today_book =  @books_con.created_today
+    @yesterday_book = @books_con.created_yesterday
+    @this_week_book = @books_con.created_this_week
+    @last_week_book = @books_con.created_last_week
+
     @following_users = @user.following_user
     @follower_users = @user.follower_user
     @currentUserEntry=Entry.where(user_id: current_user.id)
