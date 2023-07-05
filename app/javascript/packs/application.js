@@ -10,6 +10,8 @@ import "channels"
 import "jquery"
 import "popper.js"
 import "bootstrap"
+import "chartkick"
+import "chart.js"
 
 import "../stylesheets/application"
 
