@@ -3,6 +3,10 @@ class Group < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   has_many :users, through: :group_users
 
+  def includesUser?(user)
+    group_users.exists?(user_id: user.id)
+  end
+
   validates :name, presence: true
   validates :introduction, presence: true
   has_one_attached :group_image
